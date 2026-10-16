@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fresh Basket — Premium Vegetable Shop | Pakistan</title>
+  <meta name="description" content="Fresh Basket — Pakistan's freshest vegetable shop. 10 farm-fresh vegetables in PKR, home delivery across Pakistan.">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="loader"><div class="loader-veg">🥕</div><p>Fresh Basket</p></div>
+
+  <div class="cursor-glow" id="cursorGlow"></div>
+  <canvas id="particles"></canvas>
+
+  <header class="nav">
+    <a class="logo" href="#"><span class="logo-3d">🥖</span> Fresh<b>Basket</b></a>
+    <nav class="nav-links">
+      <a href="#products">Products</a>
+      <a href="#about">About</a>
+      <a href="#why">Why Us</a>
+      <a href="#order">Order</a>
+    </nav>
+    <button class="cart-btn" id="cartBtn">🛒 <span class="cart-count" id="cartCount">0</span></button>
+  </header>
+
+  <section class="hero">
+    <div class="hero-text">
+      <p class="eyebrow">Farm Fresh · Pakistan</p>
+      <h1>Fresh Vegetables<br><span class="grad">Delivered to Your Door</span></h1>
+      <p class="lead">Hand-picked daily from Pakistani farms. 10 premium vegetables at honest PKR prices — free delivery on orders above PKR 2,000.</p>
+      <div class="hero-cta">
+        <a href="#products" class="btn btn-primary">Shop Now</a>
+        <a href="#order" class="btn btn-ghost">Bulk Order</a>
+      </div>
+      <div class="hero-stats">
+        <div><b class="counter" data-target="10">0</b><span>Fresh Veggies</span></div>
+        <div><b class="counter" data-target="500">0</b><span>Happy Customers</span></div>
+        <div><b class="counter" data-target="24">0</b><span>Hour Delivery</span></div>
+      </div>
+    </div>
+    <div class="hero-3d" id="hero3d">
+      <div class="scene">
+        <div class="floating" style="--d:0s"><img src="assets/tomato.svg" alt="Tomato"></div>
+        <div class="floating" style="--d:.6s"><img src="assets/carrot.svg" alt="Carrot"></div>
+        <div class="floating" style="--d:1.2s"><img src="assets/brinjal.svg" alt="Brinjal"></div>
+        <div class="floating" style="--d:1.8s"><img src="assets/peas.svg" alt="Peas"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="products" id="products">
+    <p class="section-eyebrow">Our Harvest</p>
+    <h2>Fresh Picks <span class="grad">Today</span></h2>
+    <div class="filters" id="filters">
+      <button class="filter active" data-cat="all">All</button>
+      <button class="filter" data-cat="root">Root</button>
+      <button class="filter" data-cat="leafy">Leafy</button>
+      <button class="filter" data-cat="fruit">Fruit Veg</button>
+    </div>
+    <div class="grid" id="productGrid"></div>
+  </section>
+
+  <section class="about" id="about">
+    <div class="about-inner">
+      <p class="section-eyebrow">About Fresh Basket</p>
+      <h2>From Pakistani Farms <span class="grad">to Your Kitchen</span></h2>
+      <p>Fresh Basket sources vegetables directly from farms across Punjab and Sindh — no middlemen, no cold storage for weeks. What you receive today was harvested this morning. We deliver across Lahore, Karachi, Islamabad, Rawalpindi and Faisalabad.</p>
+    </div>
+  </section>
+
+  <section class="why" id="why">
+    <p class="section-eyebrow">Why Fresh Basket</p>
+    <h2>Why People <span class="grad">Trust Us</span></h2>
+    <div class="why-grid">
+      <div class="why-card tilt"><div class="why-icon">🌱</div><h3>Harvested Daily</h3><p>Picked at dawn, delivered by dusk. Zero cold-storage storage tricks.</p></div>
+      <div class="why-card tilt"><div class="why-icon">🚚</div><h3>24h Delivery</h3><p>Free home delivery on orders above PKR 2,000 across major cities.</p></div>
+      <div class="why-card tilt"><div class="why-icon">💰</div><h3>Honest PKR Prices</h3><p>Fixed market-rate pricing — no surge charges, no hidden fees.</p></div>
+      <div class="why-card tilt"><div class="why-icon">✅</div><h3>Quality Guarantee</h3><p>Not fresh? Full refund, no questions asked. That's our promise.</p></div>
+    </div>
+  </section>
+
+  <section class="order" id="order">
+    <p class="section-eyebrow">Place an Order</p>
+    <h2>Order in <span class="grad">30 Seconds</span></h2>
+    <form class="order-form" id="orderForm">
+      <div class="row">
+        <input type="text" id="custName" placeholder="Your name" required>
+        <input type="tel" id="custPhone" placeholder="Phone number" required>
+      </div>
+      <textarea id="custAddress" placeholder="Delivery address" required></textarea>
+      <div class="order-summary" id="orderSummary">Your cart is empty — add vegetables first!</div>
+      <div class="row">
+        <button type="submit" class="btn btn-primary btn-full">Place Order (PKR)</button>
+        <a class="btn btn-wa" id="waOrder" target="_blank" rel="noopener">WhatsApp Order</a>
+      </div>
+    </form>
+  </section>
+
+  <aside class="cart-panel" id="cartPanel">
+    <div class="cart-head"><h3>Your Cart</h3><button id="closeCart">✕</button></div>
+    <div class="cart-items" id="cartItems"></div>
+    <div class="cart-foot">
+      <div class="cart-total">Total: <b id="cartTotal">PKR 0</b></div>
+      <button class="btn btn-primary btn-full" id="checkoutBtn">Checkout</button>
+    </div>
+  </aside>
+
+  <footer>
+    <p>© 2026 Fresh Basket. Built by <a href="https://github.com/ZainHanif-3" target="_blank" rel="noopener">ZN DEVELOPER</a> — CEO Zain Hanif.</p>
+    <p>📞 0321-4026676 · 📍 Lahore, Pakistan</p>
+  </footer>
+
+  <div class="toast" id="toast"></div>
+  <script src="script.js"></script>
+</body>
+</html>
